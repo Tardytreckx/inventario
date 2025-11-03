@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Inicio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 70%;
+      margin: auto;
+      text-align: center;
+    }
+
+    td, th {
+      border: 2px solid black;
+      padding: 8px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    img {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // Funciones para aplicar fuentes
+    function fuenteEncabezado() {
+      return "font-family: 'Bungee'; font-size: 20px; background-color: #f2f2f2;";
+    }
+
+    function fuenteContenido() {
+      return "font-family: 'Urbanist'; font-size: 15px;";
+    }
+
+    // Solicitud de datos
+    const codigo = prompt("Ingresa el código del producto");
+    const nombre = prompt("Ingresa el nombre del producto");    
+    const descripcionc = prompt("Ingresa la descripción corta del producto");
+    const descripcionl = prompt("Ingresa la descripción larga del producto");
+    const precio = parseFloat(prompt("Ingresa el precio del producto"));
+    const cantidad = prompt("Ingresa la cantidad del producto");
+    const presentacion = prompt("Ingresa la presentación del producto");
+    const pais = prompt("Ingresa el país de origen del producto");
+
+    const descuento = precio * 0.10;
+    const precioFinal = precio + descuento;
+
+    // Mostrar tabla
+    document.write(`
+      <table>
+        <tr style="${fuenteEncabezado()}">
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Descripción Corta</th>
+          <th>Descripción Larga</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Presentación</th>
+          <th>País de Origen</th>
+          <th>Foto</th>
+          <th>Total</th>
+        </tr>
+        <tr style="${fuenteContenido()}">
+          <td>${codigo}</td>
+          <td>${nombre}</td>
+          <td>${descripcionc}</td>
+          <td>${descripcionl}</td>
+          <td>${precio}</td>
+          <td>${cantidad}</td>
+          <td>${presentacion}</td>
+          <td>${pais}</td>
+          <td><img src="img/${codigo}.jpg" alt="Foto del producto"></td>
+          <td>${precioFinal.toFixed(2)}</td>
+        </tr>
+      </table>
+    `);
+  </script>
+
+</body>
+</html>
